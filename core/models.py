@@ -2,6 +2,7 @@ from django.db import models
 
 
 # Create your models here.
+from django.urls import reverse
 
 
 class Blog(models.Model):
@@ -26,3 +27,16 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def imageURL(self):
+        try:
+            url = self.image.url
+        except:
+            url = ''
+        return url
+
+    def get_absolute_url(self):
+        return reverse("core:blog_detail", kwargs={
+            'slug': self.slug
+        })

@@ -6,6 +6,7 @@ from .views import IndexView, \
     ContactView, \
     AboutView
 
+app_name = 'core'
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index_view'),

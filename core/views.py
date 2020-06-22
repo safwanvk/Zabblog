@@ -22,7 +22,14 @@ class BlogView(ListView):
         return context
 
 
+class BlogDetailView(DetailView):
+    model = Blog
+    template_name = "core/blog-single.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context
 
 class ContactView(TemplateView):
     template_name = "core/contact.html"
