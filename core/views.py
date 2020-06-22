@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.utils import timezone
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 
 from .models import Blog
 
@@ -14,6 +14,7 @@ class IndexView(TemplateView):
 class BlogView(ListView):
     model = Blog
     paginate_by = 100
+    context_object_name = 'blogs'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -21,8 +22,6 @@ class BlogView(ListView):
         return context
 
 
-class BlogDetailView(TemplateView):
-    template_name = "core/blog-single.html"
 
 
 class ContactView(TemplateView):
