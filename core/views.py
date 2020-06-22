@@ -7,14 +7,23 @@ from django.views.generic import TemplateView, ListView, DetailView
 from .models import Blog
 
 
-class IndexView(TemplateView):
+class IndexView(ListView):
+    model = Blog
+    paginated_by = 10
+    context_object_name = 'blogs'
     template_name = "core/index.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context
 
 
 class BlogView(ListView):
     model = Blog
-    paginate_by = 100
+    paginate_by = 10
     context_object_name = 'blogs'
+    template_name = "core/blog_list.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -30,6 +39,7 @@ class BlogDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['now'] = timezone.now()
         return context
+
 
 class ContactView(TemplateView):
     template_name = "core/contact.html"
