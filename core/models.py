@@ -22,6 +22,7 @@ class Blog(models.Model):
     category = models.CharField(max_length=10, choices=CATEGORY_CHOICES)
     image = models.ImageField(blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True)
+    slug = models.SlugField()
 
     def __str__(self):
         return self.title
