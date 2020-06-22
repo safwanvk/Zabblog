@@ -1,6 +1,5 @@
 from django.db import models
 
-
 # Create your models here.
 from django.urls import reverse
 
@@ -40,3 +39,11 @@ class Blog(models.Model):
         return reverse("core:blog_detail", kwargs={
             'slug': self.slug
         })
+
+
+class Comment(models.Model):
+    name = models.CharField(max_length=30)
+    email = models.EmailField(max_length=30)
+    website = models.URLField()
+    message = models.CharField(max_length=200)
+    date = models.DateTimeField(auto_now_add=True)
