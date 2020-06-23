@@ -1,8 +1,32 @@
+
 from django.db import models
 
 # Create your models here.
 from django.urls import reverse
 
+
+class Comment(models.Model):
+    name = models.CharField(max_length=30)
+    email = models.EmailField(max_length=30)
+    website = models.URLField()
+    message = models.CharField(max_length=200)
+    date = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(blank=True, null=True)
+
+
+    def __str__(self):
+        return self.name
+
+class Comment(models.Model):
+    name = models.CharField(max_length=30)
+    email = models.EmailField(max_length=30)
+    website = models.URLField()
+    message = models.CharField(max_length=200)
+    date = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
 
 class Blog(models.Model):
     ILLUSTRATION = 'I'
@@ -23,6 +47,9 @@ class Blog(models.Model):
     image = models.ImageField(blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField()
+    comments = models.ForeignKey(Comment, on_delete=models.CASCADE)
+
+
 
     def __str__(self):
         return self.title
@@ -41,9 +68,3 @@ class Blog(models.Model):
         })
 
 
-class Comment(models.Model):
-    name = models.CharField(max_length=30)
-    email = models.EmailField(max_length=30)
-    website = models.URLField()
-    message = models.CharField(max_length=200)
-    date = models.DateTimeField(auto_now_add=True)

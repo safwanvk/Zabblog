@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.utils import timezone
 from django.views.generic import TemplateView, ListView, DetailView
 
-from .models import Blog
+from .models import Blog, Comment
 
 
 class IndexView(ListView):
@@ -47,3 +47,6 @@ class ContactView(TemplateView):
 
 class AboutView(TemplateView):
     template_name = "core/about.html"
+
+
+
