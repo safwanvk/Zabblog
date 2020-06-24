@@ -25,12 +25,14 @@
 			                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
 			              </ul>
    									<div class="meta">
-   										<p class="mb-0"><a href="#">{{ blog.date|date }}</a> | <a href="#">12 min read</a></p>
+   										<p class="mb-0"><a href="#">{{ blog.created_date|date }}</a></p>
    									</div>
    								</div>
    							</div>
    						</div>
    					</div>
+					{% empty %}
+					<p>No Blog</p>
    					{% endfor %}
    				</div>
    			</div>
