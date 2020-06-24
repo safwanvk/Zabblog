@@ -4,8 +4,9 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from django.urls import reverse_lazy
 from django.utils import timezone
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView
 
+from .forms import BlogForm
 from .models import Blog
 
 
@@ -51,5 +52,10 @@ class AboutView(TemplateView):
     template_name = "core/about.html"
 
 
+class BlogCreateView(CreateView):
+    form_class = BlogForm
+    template_name = 'core/add_blog.html'
 
-
+    def form_valid(self, form):
+        form.save()
+        return redirect('/add-blog')
