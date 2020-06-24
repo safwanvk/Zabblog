@@ -6,7 +6,7 @@ from .views import BlogView, \
     ContactView, \
     AboutView, \
     IndexView, \
-    BlogCreateView
+    BlogCreateView, BlogUpdateView
 
 app_name = 'core'
 
@@ -16,6 +16,6 @@ urlpatterns = [
     path('blog-detail/<slug:slug>/', BlogDetailView.as_view(), name='blog_detail'),
     path('contact/', ContactView.as_view(), name='contact'),
     path('about/', AboutView.as_view(), name='about'),
-    path('add-blog/', BlogCreateView.as_view(), name='add_blog')
-
-]
+    path('add-blog/', BlogCreateView.as_view(), name='add_blog'),
+    path('update-blog/<slug:slug>', BlogUpdateView.as_view(), name='update_blog')
+   ]

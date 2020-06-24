@@ -1,4 +1,5 @@
 from django import forms
+from django.views.generic.edit import ModelFormMixin
 
 from . models import Blog
 
