@@ -4,11 +4,9 @@ from django.contrib.auth.models import User
 
 class UserCreationForm(UserCreationForm):
     model = User
-    fields = {
+    fields = [
         'username',
         'password',
         'password2',
-        'email',
-        'firstname',
-        'lastname'
-    }
+        'email'
+    ]

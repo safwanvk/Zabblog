@@ -19,7 +19,7 @@ class Blog(models.Model):
         (MARKETING, 'Marketing')
     ]
     title = models.CharField(max_length=100)
-    body = models.CharField(max_length=200)
+    body = models.TextField()
     category = models.CharField(max_length=10, choices=CATEGORY_CHOICES)
     image = models.ImageField(blank=True, null=True)
     created_date = models.DateTimeField(default=timezone.now)
@@ -40,3 +40,5 @@ class Blog(models.Model):
         return reverse("core:blog_detail", kwargs={
             'slug': self.slug
         })
+
+

@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.shortcuts import render, redirect
 
 # Create your views here.
+from django.urls import reverse_lazy
 from django.utils import timezone
 from django.views.generic import TemplateView, ListView, DetailView
 
@@ -47,5 +49,7 @@ class ContactView(TemplateView):
 
 class AboutView(TemplateView):
     template_name = "core/about.html"
+
+
 
 

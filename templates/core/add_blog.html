@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load crispy_forms_filters %}
+{% block title %}Zabblog Website{% endblock %}
+{% block content %}
+
+  <body>
+    {% include 'core/navbar.html' %}
+
+   	<section class="ftco-section">
+   		<div class="container">
+   			<div class="row">
+   				<div class="col-md-12">
+					<form method="POST">
+					{% csrf_token %}
+					 {{ form|crispy }}
+					  <input type="submit" value="Add">
+					</form>
+				</div>
+             </div>
+        </div>
+   	</section>
+
+    {% include 'core/footer.html' %}
+
+
+  </body>
+{% endblock %}
