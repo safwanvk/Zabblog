@@ -1,0 +1,60 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load crispy_forms_filters %}
+{% block title %}Zabblog Website{% endblock %}
+{% block content %}
+
+  <body>
+    {% include 'core/admin_navbar.html' %}
+
+   	<section class="ftco-section">
+   		<div class="container">
+   			<div class="row">
+   				<div class="col-md-12">
+					{% for blog in blogs %}
+   					<div class="case">
+   						<div class="row">
+   							<div class="col-md-6 col-lg-6 col-xl-8 d-flex">
+   								<a href="{{ blog.get_absolute_url }}" class="img w-100 mb-3 mb-md-0" style="background-image: url({{ blog.imageURL }});"></a>
+   							</div>
+   							<div class="col-md-6 col-lg-6 col-xl-4 d-flex">
+   								<div class="text w-100 pl-md-3">
+   									<span class="subheading">{{ blog.category }}</span>
+   									<h2><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h2>
+									<div class="meta">
+   										<p class="mb-0"><a href="#">{{ blog.created_date|date }}</a></p>
+   									</div>
+									<h5><a href="{{ blog.get_absolute_url1 }}">Update</a></h5>
+									<h5><a href="{{ blog.get_absolute_url2 }}">Delete</a></h5>
+   								</div>
+   							</div>
+   						</div>
+   					</div>
+					{% empty %}
+					<p>No Blog</p>
+   					{% endfor %}
+   				</div>
+   			</div>
+   			<div class="row mt-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+                <li><a href="#">&lt;</a></li>
+                <li class="active"><span>1</span></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&gt;</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+   		</div>
+   	</section>
+
+    {% include 'core/footer.html' %}
+
+
+  </body>
+{% endblock %}

@@ -41,4 +41,12 @@ class Blog(models.Model):
             'slug': self.slug
         })
 
+    def get_absolute_url1(self):
+        return reverse("core:update_blog", kwargs={
+            'slug': self.slug
+        })
 
+    def get_absolute_url2(self):
+        return reverse("core:delete-blog", kwargs={
+            'slug': self.slug
+        })

@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.utils import timezone
 from django.views.generic import TemplateView, ListView, DetailView
-from django.views.generic.edit import UpdateView, CreateView
+from django.views.generic.edit import UpdateView, CreateView, DeleteView
 from .forms import BlogForm
 from .models import Blog
 
@@ -70,6 +70,23 @@ class BlogUpdateView(UpdateView):
         'image',
         'slug'
     ]
-    template_name = 'core/update_blog.html'
-    success_url = '/'
+    template_name = "core/update_blog.html"
+    success_url = reverse_lazy("core:view-blog")
 
+
+class BlogDeleteView(DeleteView):
+    model = Blog
+    template_name = "core/delete_blog.html"
+    success_url = reverse_lazy("core:view-blog")
+
+
+class ViewBlog(ListView):
+    model = Blog
+    paginated_by = 10
+    context_object_name = 'blogs'
+    template_name = "core/view_blog.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context
