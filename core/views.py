@@ -25,7 +25,6 @@ class IndexView(ListView):
 
 class BlogView(ListView):
     model = Blog
-    paginate_by = 10
     context_object_name = 'blogs'
     template_name = "core/blog_list.html"
 
@@ -79,7 +78,6 @@ class BlogDeleteView(DeleteView):
 
 class ViewBlog(ListView):
     model = Blog
-    paginated_by = 10
     context_object_name = 'blogs'
     template_name = "core/view_blog.html"
 

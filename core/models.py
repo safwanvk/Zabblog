@@ -28,6 +28,9 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
 
+    def snippet(self):
+        return self.body[:100]
+
     @property
     def imageURL(self):
         try:
