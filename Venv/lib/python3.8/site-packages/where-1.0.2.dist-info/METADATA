@@ -1,0 +1,14 @@
+Metadata-Version: 2.0
+Name: where
+Version: 1.0.2
+Summary: Locates absolute file paths like the Windows 'where' or the Linux 'which' utility.
+Requires-Dist: itermate (==1.0.2)
+
+Makes use of the PATH variable and the current directory.
+Home-page: https://github.com/hweickert/where
+Author: Henry Weickert
+Author-email: henryweickert@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: where,which
+Platform: UNKNOWN
