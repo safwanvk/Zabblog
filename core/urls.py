@@ -3,7 +3,7 @@ from django.urls import path
 
 from .views import BlogView, \
     BlogDetailView, \
-    AboutView, \
+          AboutView, \
     IndexView, \
     BlogCreateView, \
     BlogUpdateView, \
