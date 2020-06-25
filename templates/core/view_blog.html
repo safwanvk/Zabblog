@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 {% load static %}
 {% load crispy_forms_filters %}
-{% block title %}Zabblog Website{% endblock %}
+{% block title %} Admin-Home{% endblock %}
 {% block content %}
 
   <body>
@@ -24,8 +24,8 @@
 									<div class="meta">
    										<p class="mb-0"><a href="#">{{ blog.created_date|date }}</a></p>
    									</div>
-									<h5><a href="{{ blog.get_absolute_url1 }}">Update</a></h5>
-									<h5><a href="{{ blog.get_absolute_url2 }}">Delete</a></h5>
+									<a class="btn btn-primary" href="{{ blog.get_absolute_url1 }}">Update</a>
+									<a class="btn btn-primary" href="{{ blog.get_absolute_url2 }}">Delete</a>
    								</div>
    							</div>
    						</div>

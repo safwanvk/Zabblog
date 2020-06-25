@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 {% load static %}
 
-{% block title %}Zabblog Delete Blog{% endblock %}
+{% block title %} Delete-Blog{% endblock %}
 {% block content %}
 
   <body>
@@ -14,7 +14,7 @@
 					<form method="POST">
                         {% csrf_token %}
 					  <h5>Are you sure?</h5>
-					  <input type="submit" value="Delete">
+					  <input class="btn btn-danger" type="submit" value="Delete">
 					</form>
 				</div>
              </div>
