@@ -6,7 +6,10 @@ from .views import BlogView, \
     ContactView, \
     AboutView, \
     IndexView, \
-    BlogCreateView, BlogUpdateView, BlogDeleteView, ViewBlog
+    BlogCreateView, \
+    BlogUpdateView, \
+    BlogDeleteView, \
+    ViewBlog
 
 app_name = 'core'
 

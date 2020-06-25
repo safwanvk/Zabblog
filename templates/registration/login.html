@@ -8,10 +8,11 @@
              <div class="col-md-6 col-md-offset-3">
                   <form method="POST" action="{% url 'login' %}">
                     {% csrf_token %}
-                    <h1 style="color:#3c2aff;">Sign in</h1>
+                    <h1 style="color:#3c2aff;">Sign in to ZabBlog</h1>
                     {{ form|crispy }}
                      <input class="btn btn-primary" type="submit" value="Sign in">
                   </form>
+                  <h4>New to ZabBlog? <a href="{% url 'register' %}">Create an account.</a></h4>
              </div>
         </div>
    </div>
