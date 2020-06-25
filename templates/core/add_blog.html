@@ -12,9 +12,9 @@
    			<div class="row">
    				<div class="col-md-12">
 					<form method="POST">
-					{% csrf_token %}
-					 {{ form|crispy }}
-					  <input type="submit" value="Add">
+					  {% csrf_token %}
+					  {{ form|crispy }}
+					  <input class="btn btn-primary" type="submit" value="Add">
 					</form>
 				</div>
              </div>

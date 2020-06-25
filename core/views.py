@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 from django.utils import timezone
 from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import UpdateView, CreateView, DeleteView
-from .forms import BlogForm
+from .forms import BlogForm, ContactForm
 from .models import Blog
 
 
@@ -43,10 +43,6 @@ class BlogDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['now'] = timezone.now()
         return context
-
-
-class ContactView(TemplateView):
-    template_name = "core/contact.html"
 
 
 class AboutView(TemplateView):
@@ -91,3 +87,12 @@ class ViewBlog(ListView):
         context = super().get_context_data(**kwargs)
         context['now'] = timezone.now()
         return context
+
+
+class ContactCreateView(CreateView):
+    form_class = ContactForm
+    template_name = "core/contact.html"
+
+    def form_valid(self, form):
+        form.save()
+        return redirect('/contact')

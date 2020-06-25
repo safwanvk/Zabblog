@@ -50,3 +50,13 @@ class Blog(models.Model):
         return reverse("core:delete-blog", kwargs={
             'slug': self.slug
         })
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=20)
+    email = models.EmailField()
+    subject = models.CharField(max_length=200)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.name
