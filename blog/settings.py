@@ -132,4 +132,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = '/add-blog'
-LOGOUT_REDIRECT_URL = 'login'
+LOGOUT_REDIRECT_URL = '/'
